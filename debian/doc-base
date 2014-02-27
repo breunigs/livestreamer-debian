@@ -1,0 +1,9 @@
+Document: livestreamer
+Title: livestreamer documentation
+Author: Christopher Rosell
+Abstract: The documentation explains how to use and extend kanla.
+Section: Video
+
+Format: HTML
+Files: /usr/share/doc/livestreamer/html/*.html
+Index: /usr/share/doc/livestreamer/html/index.html

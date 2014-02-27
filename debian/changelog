@@ -1,0 +1,5 @@
+livestreamer (1.7.4-1) unstable; urgency=low
+
+  * Initial release (Closes: #740062)
+
+ -- Stefan Breunig <stefan-debian@yrden.de>  Fri, 28 Feb 2014 01:22:37 +0100

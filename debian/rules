@@ -1,0 +1,19 @@
+#! /usr/bin/make -f
+export PYBUILD_INSTALL_ARGS=--install-lib=/usr/share/livestreamer
+%:
+	dh $@ --with python2,sphinxdoc --buildsystem=pybuild
+
+override_dh_auto_clean:
+	rm -rf src/livestreamer.egg-info
+	dh_auto_clean
+
+override_dh_auto_install:
+	python setup.py build_sphinx -b man
+	python setup.py build_sphinx -b html
+	dh_auto_install
+
+override_dh_compress:
+	dh_compress -X.html
+
+override_dh_installchangelogs:
+	dh_installchangelogs CHANGELOG.rst
