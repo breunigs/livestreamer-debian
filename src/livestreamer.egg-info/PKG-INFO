@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: livestreamer
+Version: 1.7.4
+Summary: Livestreamer is CLI program that extracts streams from various services and pipes them into a video player of choice.
+Home-page: http://livestreamer.tanuki.se/
+Author: Christopher Rosell
+Author-email: chrippa@tanuki.se
+License: Simplified BSD
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Environment :: Console
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Multimedia :: Sound/Audio
+Classifier: Topic :: Multimedia :: Video
+Classifier: Topic :: Utilities

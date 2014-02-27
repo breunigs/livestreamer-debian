@@ -1,0 +1,65 @@
+# These are the contributors of the Livestreamer project.
+#
+# List is sorted by surname.
+# Fields are name (N), github account (G) and description (D).
+
+N: Andrew Bashore
+G: bashtech
+D: Added support for HLS source in the Twitch plugin.
+
+N: Dominik Dabrowski
+G: doda
+D: Initial quality ranking feature.
+
+N: Agustín Carrasco
+G: asermax
+D: Crunchyroll plugin.
+
+N: Sam Edwards
+G: dotsam
+D: ilive.to plugin fixes.
+
+N: Gaspard Jankowiak
+G: gapato
+D: DailyMotion plugin.
+
+N: Jon Bergli Heier
+G: sn4kebite
+D: NRK TV plugin.
+
+N: Kacper
+G: kasper93
+D: Aliez.tv and Hashd.tv plugins.
+
+N: Toad King
+G: ToadKing
+D: Named pipe support.
+
+N: Niall McAndrew
+G: niallm90
+D: Original GOMTV plugin.
+
+N: Athanasios Oikonomou
+G: athoik
+D: Various plugins.
+
+N: Martin Panter
+G: vadmium
+D: Fixed various Python warnings and added support for HDS player verification.
+
+N: John Peterson
+G: john-peterson
+D: Added a FilmOn Social TV plugin and various tweaks and fixes.
+
+N: Christopher Rosell
+G: chrippa
+D: Primary author and maintainer of Livestreamer and most of its plugins.
+
+N: T0mm0
+G: t0mm0
+D: Hitbox.tv plugin.
+
+N: Daniel Wallace
+G: gtmanfred
+D: Added XDG_CONFIG_HOME support and maintainer of Arch Linux packages.
+
