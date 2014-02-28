@@ -1,5 +1,16 @@
 #! /usr/bin/make -f
-export PYBUILD_INSTALL_ARGS=--install-lib=/usr/share/livestreamer
+
+# Livestreamer installs an executable and a module named “livestreamer”.
+# In order to avoid name collisions, install into a “bin” subdirectory
+# first and move it to the required place later.
+export PYBUILD_INSTALL_ARGS = \
+	--install-lib=/usr/share/livestreamer \
+	--install-scripts=/usr/share/livestreamer/bin
+
+export PYBUILD_AFTER_INSTALL = \
+	mv {destdir}/usr/share/livestreamer/bin/livestreamer {destdir}/usr/share/livestreamer/run; \
+	rmdir {destdir}/usr/share/livestreamer/bin
+
 %:
 	dh $@ --with python2,sphinxdoc --buildsystem=pybuild
 
