@@ -1,7 +1,7 @@
 Document: livestreamer
 Title: livestreamer documentation
 Author: Christopher Rosell
-Abstract: The documentation explains how to use and extend kanla.
+Abstract: The documentation explains the usage and how to write new plugins
 Section: Video
 
 Format: HTML
