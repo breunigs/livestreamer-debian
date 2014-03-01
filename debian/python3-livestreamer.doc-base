@@ -1,0 +1,9 @@
+Document: python3-livestreamer
+Title: livestreamer documentation
+Author: Christopher Rosell
+Abstract: The documentation explains the usage and how to write new plugins
+Section: Video
+
+Format: HTML
+Files: /usr/share/doc/python3-livestreamer/html/*.html
+Index: /usr/share/doc/python3-livestreamer/html/index.html

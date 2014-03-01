@@ -1,23 +1,19 @@
 #! /usr/bin/make -f
 
-# Livestreamer installs an executable and a module named “livestreamer”.
-# In order to avoid name collisions, install into a “bin” subdirectory
-# first and move it to the required place later.
-export PYBUILD_INSTALL_ARGS = \
-	--install-lib=/usr/share/livestreamer \
-	--install-scripts=/usr/share/livestreamer/bin
-
-export PYBUILD_AFTER_INSTALL = \
-	mv {destdir}/usr/share/livestreamer/bin/livestreamer {destdir}/usr/share/livestreamer/run; \
-	rmdir {destdir}/usr/share/livestreamer/bin
+export PYBUILD_INSTALL_ARGS = --no-compile
 
 %:
-	dh $@ --with python2,sphinxdoc --buildsystem=pybuild
+	dh $@ --with python2,python3,sphinxdoc --buildsystem=pybuild
 
 override_dh_auto_install:
 	python setup.py build_sphinx -b man
 	python setup.py build_sphinx -b html
 	dh_auto_install
+
+	#~　set -e -x; \
+		#~　python  setup.py install --root debian/python-livestreamer  --install-layout=deb; \
+		#~　python3 setup.py install --root debian/python3-livestreamer --install-layout=deb; \
+		#~　python3 setup.py install --root debian/livestreamer-cli --install-layout=deb;
 
 override_dh_compress:
 	dh_compress -X.html

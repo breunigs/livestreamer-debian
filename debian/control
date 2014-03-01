@@ -6,15 +6,21 @@ Standards-Version: 3.9.5
 Build-Depends: debhelper (>= 9),
  dh-python,
  python,
+ python3,
  python-setuptools,
+ python3-setuptools,
  python-requests,
+ python3-requests,
  python-sphinx,
+ python3-sphinx,
  python-sphinxcontrib.issuetracker
+X-Python-Version: >= 2.5
+X-Python3-Version: >= 3.0
 Homepage: http://livestreamer.tanuki.se/
 Vcs-Git: git://github.com/breunigs/livestreamer-debian.git
 Vcs-Browser: https://github.com/breunigs/livestreamer-debian
 
-Package: livestreamer
+Package: python-livestreamer
 Architecture: all
 Depends: ${sphinxdoc:Depends},
  ${misc:Depends},
@@ -34,3 +40,44 @@ Description: CLI that pipes video streams to video players
  (e.g. Dailymotion, Livestream, Justin.tv, Twitch, YouTube Live
  and UStream) and more specialized content providers can be
  added easily using Livestreamer’s plugin system.
+ .
+ This package makes Livestreamer APIs accessible in Python 2.
+
+Package: python3-livestreamer
+Architecture: all
+Depends: ${sphinxdoc:Depends},
+ ${misc:Depends},
+ ${python3:Depends},
+ python3-requests
+Recommends: rtmpdump,
+  python3-crypto
+Description: CLI that pipes video streams to video players
+ Livestreamer is a Command Line Interface that pipes video
+ streams from various services into a video player, such
+ as VLC. The main purpose of Livestreamer is to allow the
+ user to avoid buggy and CPU heavy flash plugins but still
+ be able to enjoy various streamed content.
+ .
+ Currently most of the big streaming services are supported
+ (e.g. Dailymotion, Livestream, Justin.tv, Twitch, YouTube Live
+ and UStream) and more specialized content providers can be
+ added easily using Livestreamer’s plugin system.
+ .
+ This package makes Livestreamer APIs accessible in Python 3.
+
+Package: livestreamer-cli
+Architecture: all
+Depends: python-livestreamer | python3-livestreamer, ${misc:Depends}
+Description: CLI that pipes video streams to video players
+ Livestreamer is a Command Line Interface that pipes video
+ streams from various services into a video player, such
+ as VLC. The main purpose of Livestreamer is to allow the
+ user to avoid buggy and CPU heavy flash plugins but still
+ be able to enjoy various streamed content.
+ .
+ Currently most of the big streaming services are supported
+ (e.g. Dailymotion, Livestream, Justin.tv, Twitch, YouTube Live
+ and UStream) and more specialized content providers can be
+ added easily using Livestreamer’s plugin system.
+ .
+ This package contains the CLI interface to Livestreamer.
