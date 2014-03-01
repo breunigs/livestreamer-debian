@@ -1,6 +1,6 @@
 #! /usr/bin/make -f
 
-export PYBUILD_INSTALL_ARGS = --no-compile
+export PYBUILD_INSTALL_ARGS =
 
 %:
 	dh $@ --with python2,python3,sphinxdoc --buildsystem=pybuild

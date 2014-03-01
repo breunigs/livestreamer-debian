@@ -1,6 +1,6 @@
 Source: livestreamer
 Maintainer: Stefan Breunig <stefan-debian@yrden.de>
-Section: video
+Section: python
 Priority: optional
 Standards-Version: 3.9.5
 Build-Depends: debhelper (>= 9),
@@ -66,6 +66,7 @@ Description: CLI that pipes video streams to video players
  This package makes Livestreamer APIs accessible in Python 3.
 
 Package: livestreamer-cli
+Section: video
 Architecture: all
 Depends: python-livestreamer | python3-livestreamer, ${misc:Depends}
 Description: CLI that pipes video streams to video players
