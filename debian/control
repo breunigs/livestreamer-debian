@@ -24,7 +24,6 @@ Architecture: all
 Depends: ${sphinxdoc:Depends},
  ${misc:Depends},
  ${python:Depends},
- python,
  python-requests
 Recommends: rtmpdump,
   python-crypto
@@ -70,7 +69,7 @@ Package: livestreamer
 Section: video
 Architecture: all
 Depends: ${misc:Depends},
-  python,
+  ${python:Depends},
   python-livestreamer
 Description: CLI that pipes video streams to video players
  Livestreamer is a Command Line Interface that pipes video
