@@ -29,7 +29,7 @@ Depends: ${sphinxdoc:Depends},
  python-requests
 Recommends: rtmpdump,
   python-crypto
-Suggests: livestreamer-cli
+Suggests: livestreamer
 Description: CLI that pipes video streams to video players
  Livestreamer is a Command Line Interface that pipes video
  streams from various services into a video player, such
@@ -52,7 +52,7 @@ Depends: ${sphinxdoc:Depends},
  python3-requests
 Recommends: rtmpdump,
   python3-crypto
-Suggests: livestreamer-cli
+Suggests: livestreamer
 Description: CLI that pipes video streams to video players
  Livestreamer is a Command Line Interface that pipes video
  streams from various services into a video player, such
@@ -67,7 +67,7 @@ Description: CLI that pipes video streams to video players
  .
  This package makes Livestreamer APIs accessible in Python 3.
 
-Package: livestreamer-cli
+Package: livestreamer
 Section: video
 Architecture: all
 Depends: ${misc:Depends},
