@@ -27,9 +27,10 @@ Depends: ${misc:Depends},
 Recommends: rtmpdump,
   python-crypto
 Suggests: livestreamer
-Description: Provides an API to access video streams from
- various providers. It extracts available qualities and raw
- video data from URLs visible to the sites’ users.
+Description: library to extract video streams from various services - Python 2
+ The API lists available video qualities from URLs which are
+ visible to a service’s users. It can extract any such quality
+ and pass on the raw video data.
  .
  Currently most of the big streaming services are supported
  (e.g. Dailymotion, Livestream, Justin.tv, Twitch, YouTube Live
@@ -46,9 +47,10 @@ Depends: ${misc:Depends},
 Recommends: rtmpdump,
   python3-crypto
 Suggests: livestreamer
-Description: Provides an API to access video streams from
- various providers. It extracts available qualities and raw
- video data from URLs visible to the sites’ users.
+Description: library to extract video streams from various services - Python 3
+ The API lists available video qualities from URLs which are
+ visible to a service’s users. It can extract any such quality
+ and pass on the raw video data.
  .
  Currently most of the big streaming services are supported
  (e.g. Dailymotion, Livestream, Justin.tv, Twitch, YouTube Live
@@ -62,9 +64,10 @@ Section: doc
 Architecture: all
 Depends: ${sphinxdoc:Depends},
   ${misc:Depends}
-Description: Provides an API to access video streams from
- various providers. It extracts available qualities and raw
- video data from URLs visible to the sites’ users.
+Description: library to extract video streams from various services - documentation
+ The API lists available video qualities from URLs which are
+ visible to a service’s users. It can extract any such quality
+ and pass on the raw video data.
  .
  Currently most of the big streaming services are supported
  (e.g. Dailymotion, Livestream, Justin.tv, Twitch, YouTube Live
@@ -82,9 +85,9 @@ Depends: ${misc:Depends},
   python-livestreamer
 Suggests: python-livestreamer-doc
 Description: CLI that pipes video streams to video players
- Livestreamer is a Command Line Interface that pipes video
- streams from various services into a video player, such
- as VLC. The main purpose of Livestreamer is to allow the
+ Livestreamer is a Command Line Interface that extracts video
+ streams from various services and hands them to a video player,
+ such as VLC. The main purpose of Livestreamer is to allow the
  user to avoid buggy and CPU heavy flash plugins but still
  be able to enjoy various streamed content.
  .
@@ -93,4 +96,4 @@ Description: CLI that pipes video streams to video players
  and UStream) and more specialized content providers can be
  added easily using Livestreamer’s plugin system.
  .
- This package contains the CLI interface to Livestreamer.
+ This package contains the Livestreamer CLI.
