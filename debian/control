@@ -95,5 +95,3 @@ Description: CLI that pipes video streams to video players
  (e.g. Dailymotion, Livestream, Justin.tv, Twitch, YouTube Live
  and UStream) and more specialized content providers can be
  added easily using Livestreamer’s plugin system.
- .
- This package contains the Livestreamer CLI.
