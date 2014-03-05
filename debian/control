@@ -21,8 +21,7 @@ Vcs-Browser: https://github.com/breunigs/livestreamer-debian
 
 Package: python-livestreamer
 Architecture: all
-Depends: ${sphinxdoc:Depends},
- ${misc:Depends},
+Depends: ${misc:Depends},
  ${python:Depends},
  python-requests
 Recommends: rtmpdump,
@@ -41,8 +40,7 @@ Description: Provides an API to access video streams from
 
 Package: python3-livestreamer
 Architecture: all
-Depends: ${sphinxdoc:Depends},
- ${misc:Depends},
+Depends: ${misc:Depends},
  ${python3:Depends},
  python3-requests
 Recommends: rtmpdump,
@@ -59,12 +57,30 @@ Description: Provides an API to access video streams from
  .
  This package makes Livestreamer APIs accessible in Python 3.
 
+Package: python-livestreamer-doc
+Section: doc
+Architecture: all
+Depends: ${sphinxdoc:Depends},
+  ${misc:Depends}
+Description: Provides an API to access video streams from
+ various providers. It extracts available qualities and raw
+ video data from URLs visible to the sites’ users.
+ .
+ Currently most of the big streaming services are supported
+ (e.g. Dailymotion, Livestream, Justin.tv, Twitch, YouTube Live
+ and UStream) and more specialized content providers can be
+ added easily using Livestreamer’s plugin system.
+ .
+ This package contains the Livestreamer usage, API and plugins
+ documentation in HTML format.
+
 Package: livestreamer
 Section: video
 Architecture: all
 Depends: ${misc:Depends},
   ${python:Depends},
   python-livestreamer
+Suggests: python-livestreamer-doc
 Description: CLI that pipes video streams to video players
  Livestreamer is a Command Line Interface that pipes video
  streams from various services into a video player, such
