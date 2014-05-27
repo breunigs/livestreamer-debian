@@ -1,3 +1,123 @@
+Version 1.8.1
+-------------
+
+General:
+ - Added a wheel package to PyPi for speedier installation via pip.
+
+Bug fixes:
+ - hls: Handle encrypted segments that are invalid length (not multiple by 16). (#365)
+
+Plugins:
+ - Added plugin for Furstream, patch by Pascal Romahn. (#360)
+ - Added plugin for Viasat's play sites (tv6play.se, etc). (#378)
+ - Added plugin for ZDFmediathek, patch by Pascal Romahn. (#360)
+ - azubutv: Updated for service changes. (#373)
+ - crunchyroll: Correctly handle unicode errors, patch by Agustin Carrasco. (#387, #388)
+ - filmon: Updated for service changes, patch by Athanasios Oikonomou. (#375)
+ - hitbox: Updated for service changes.
+ - ilive: Updated for service changes, patch by Athanasios Oikonomou. (#376)
+ - svtplay: Added support for SVT Flow.
+ - twitch: Now uses the beta API on beta.twitch.tv URLs. (#391)
+ - ustream: Correctly handle UHS streams containing only video or audio.
+
+
+Version 1.8.0
+-------------
+
+CLI:
+ - Added option: ``--no-version-check``
+ - Added HTTP options: ``--http-cookies``,
+   ``--http-headers``,
+   ``--http-query-params``,
+   ``--http-ignore-env``,
+   ``--http-no-ssl-verify``,
+   ``--http-ssl-cert``,
+   ``--http-ssl-cert-crt-key`` and
+   ``--http-timeout``
+ - Added HTTP stream option: ``--http-stream-timeout``
+ - Added HDS stream options: ``--hds-segment-attempts``,
+   ``--hds-segment-timeout``
+   ``--hds-timeout``
+ - Added HLS stream options: ``--hls-live-edge``,
+   ``--hls-segment-attempts``,
+   ``--hls-segment-timeout`` and
+   ``--hls-timeout``
+ - Added RTMP stream option: ``--rtmp-timeout``
+ - Added plugin options: ``--livestation-email`` and ``--livestation-password``
+ - Added stream options: ``--retry-streams``,
+   ``--retry-open`` and
+   ``--best-stream-default``
+ - Deprecated option: ``--hds-fragment-buffer``
+
+Plugins:
+ - Added plugin for Bambuser, patch by Athanasios Oikonomou. (#327)
+ - Added plugin for Be-at.tv, patch by Athanasios Oikonomou. (#342)
+ - Added plugin for Chaturbate, patch by papplampe. (#337)
+ - Added plugin for Cybergame.tv, patch by Athanasios Oikonomou. (#324)
+ - Added plugin for Picarto, patch by papplampe. (#352)
+ - Added plugin for SpeedRunsLive, patch by Stefan Breunig. (#335)
+ - Removed plugins for dead services: Owncast.me and YYCast.
+ - azubutv: Added support for beta.azubu.tv.
+ - crunchyroll: Added workaround for SSL verification issue.
+ - dailymotion: Added support for HDS streams. (#348)
+ - gomexp: Fixed encoding issue on Python 2.
+ - livestation: Added support for logging in, patch by Sunaga Takahiro. (#344)
+ - mlgtv: Removed the ``mobile_`` prefix from the HLS streams.
+ - twitch: Added workaround for SSL verification issue. (#255)
+ - ustreamtv: Improved UHS stream stability.
+ - ustreamtv: Added support for RTMP VODs.
+ - youtube: Updated for service changes.
+ - youtube: Added support for embed URLs, patch by Athanasios Oikonomou.
+ - youtube: Now only picks up live streams from channel pages.
+
+General:
+ - Now attempts to resolve URL redirects such as URL shorterners.
+
+Bug fixes:
+ - Added workaround for HTTP streams not applying read timeout on some requests versions.
+
+API:
+ - Added new options: ``hds-segment-attempts``,
+   ``hds-segment-timeout``,
+   ``hds-timeout``,
+   ``hls-live-edge``,
+   ``hls-segment-attempts``,
+   ``hls-segment-timeout``,
+   ``hls-timeout``,
+   ``http-proxy``,
+   ``https-proxy``,
+   ``http-cookies``,
+   ``http-headers``,
+   ``http-query-params``,
+   ``http-trust-env``,
+   ``http-ssl-verify``,
+   ``http-ssl-cert``,
+   ``http-timeout``,
+   ``http-stream-timeout`` and
+   ``rtmp-timeout``
+ - Renamed option ``errorlog`` to ``subprocess-errorlog``.
+ - Renamed option ``rtmpdump-proxy`` to ``rtmp-proxy``.
+ - Renamed option ``rtmpdump`` to ``rtmp-rtmpdump``.
+
+
+Version 1.7.5
+-------------
+
+Plugins:
+ - filmon: Added VOD support, patch by Athanasios Oikonomou.
+ - ilive: Added support for HLS streams, patch by Athanasios Oikonomou.
+ - mlgtv: Updated for service changes.
+ - veetle: Now handles shortened URLs, patch by Athanasios Oikonomou.
+ - youtube: Updated for service changes.
+
+Bug fixes:
+ - Fixed gzip not getting decoded in streams.
+
+Other:
+ - Added scripts to automatically create Windows builds via Travis CI.
+   Builds are available here: http://livestreamer-builds.s3.amazonaws.com/builds.html
+
+
 Version 1.7.4
 -------------
 

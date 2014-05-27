@@ -13,10 +13,10 @@ from livestreamer.compat import urlparse, urljoin
 from livestreamer.exceptions import NoStreamsError, PluginError, StreamError
 from livestreamer.options import Options
 from livestreamer.plugin import Plugin
+from livestreamer.plugin.api import http
 from livestreamer.stream import (HTTPStream, HLSStream, FLVPlaylist,
                                  extract_flv_header_tags)
-from livestreamer.utils import (parse_json, parse_qsd, res_json, res_xml,
-                                verifyjson, urlget)
+from livestreamer.utils import parse_json, parse_qsd, verifyjson
 
 __all__ = ["PluginBase", "APIBase"]
 
@@ -27,9 +27,21 @@ QUALITY_WEIGHTS = {
     "low": 240,
     "mobile": 120,
 }
-URL_PATTERN = (r"http(s)?://([\w\.]+)?(?P<domain>twitch.tv|justin.tv)/(?P<channel>\w+)"
-               r"(/(?P<video_type>[bc])/(?P<video_id>\d+))?")
 USHER_SELECT_PATH = "/select/{0}.json"
+
+_url_re = re.compile(r"""
+    http(s)?://
+    (?P<subdomain>[\w\.]+)?
+    (?P<domain>twitch.tv|justin.tv)
+    /
+    (?P<channel>[^/]+)
+    (?:
+        /
+        (?P<video_type>[bc])
+        /
+        (?P<video_id>\d+)
+    )?
+""", re.VERBOSE)
 
 
 class UsherService(object):
@@ -46,23 +58,25 @@ class UsherService(object):
                       allow_source="true", private_code=password or "null",
                       **extra_params)
 
-        return requests.Request(url=url, params=params).prepare().url
+        req = requests.Request("GET", url, params=params)
+        # prepare_request is only available in requests 2.0+
+        if hasattr(http, "prepare_request"):
+            req = http.prepare_request(req)
+        else:
+            req = req.prepare()
+
+        return req.url
 
 
 class APIBase(object):
-    def __init__(self, host="justin.tv"):
+    def __init__(self, host="justin.tv", beta=False):
+        self.beta = beta
         self.host = host
         self.oauth_token = None
-        self.session = requests.session()
+        self.subdomain = beta and "betaapi" or "api"
 
     def add_cookies(self, cookies):
-        for cookie in cookies.split(";"):
-            try:
-                name, value = cookie.split("=")
-            except ValueError:
-                continue
-
-            self.session.cookies[name.strip()] = value.strip()
+        http.parse_cookies(cookies, domain=self.host)
 
     def call(self, path, format="json", host=None, **extra_params):
         params = dict(as3="t", **extra_params)
@@ -70,13 +84,15 @@ class APIBase(object):
         if self.oauth_token:
             params["oauth_token"] = self.oauth_token
 
-        url = "https://api.{0}{1}.{2}".format(host or self.host, path, format)
-        res = urlget(url, params=params, session=self.session)
+        url = "https://{0}.{1}{2}.{3}".format(self.subdomain, host or self.host,
+                                              path, format)
+        # The certificate used by Twitch cannot be verified in some environments.
+        res = http.get(url, params=params, verify=False)
 
         if format == "json":
-            return res_json(res)
+            return http.json(res)
         elif format == "xml":
-            return res_xml(res)
+            return http.xml(res)
         else:
             return res
 
@@ -113,8 +129,9 @@ class PluginBase(Plugin):
         Plugin.__init__(self, url)
 
         try:
-            match = re.match(URL_PATTERN, url).groupdict()
+            match = _url_re.match(url).groupdict()
             self.channel = match.get("channel").lower()
+            self.subdomain = match.get("subdomain")
             self.video_type = match.get("video_type")
             self.video_id = match.get("video_id")
             self.usher = UsherService(match.get("domain"))
@@ -124,6 +141,7 @@ class PluginBase(Plugin):
         except AttributeError:
             self.channel = None
             self.params = None
+            self.subdomain = None
             self.video_id = None
             self.video_type = None
             self.usher = None
@@ -185,7 +203,10 @@ class PluginBase(Plugin):
             chunk_stream = HTTPStream(self.session, chunk_url)
 
             if start_offset >= chunk_start and start_offset <= chunk_stop:
-                headers = extract_flv_header_tags(chunk_stream)
+                try:
+                    headers = extract_flv_header_tags(chunk_stream)
+                except IOError as err:
+                    raise StreamError("Error while parsing FLV: {0}", err)
 
                 if not headers.metadata:
                     raise StreamError("Missing metadata tag in the first chunk")

@@ -5,11 +5,10 @@ from collections import defaultdict
 from livestreamer.compat import urljoin
 from livestreamer.exceptions import PluginError, NoStreamsError
 from livestreamer.plugin import Plugin
+from livestreamer.plugin.api import http
 from livestreamer.stream import AkamaiHDStream, HLSStream
-from livestreamer.utils import urlget, verifyjson, res_xml, parse_json
+from livestreamer.utils import verifyjson, parse_json
 
-
-SWF_URL = "http://cdn.livestream.com/swf/hdplayer-2.0.swf"
 
 class Livestream(Plugin):
     @classmethod
@@ -21,15 +20,15 @@ class Livestream(Plugin):
         return "new.livestream.com" in url
 
     def _get_stream_info(self):
-        res = urlget(self.url)
+        res = http.get(self.url)
         match = re.search("window.config = ({.+})", res.text)
         if match:
             config = match.group(1)
             return parse_json(config, "config JSON")
 
     def _parse_smil(self, url, swfurl):
-        res = urlget(url)
-        smil = res_xml(res, "SMIL config")
+        res = http.get(url)
+        smil = http.xml(res, "SMIL config")
 
         streams = {}
         httpbase = smil.find("{http://www.w3.org/2001/SMIL20/Language}head/"
@@ -68,8 +67,8 @@ class Livestream(Plugin):
         streams = defaultdict(list)
         play_url = streaminfo.get("play_url")
         if play_url:
-            swfurl = info.get("hdPlayerSwfUrl") or SWF_URL
-            if not swfurl.startswith("http://"):
+            swfurl = info.get("viewerPlusSwfUrl") or info.get("hdPlayerSwfUrl")
+            if not swfurl.startswith("http"):
                 swfurl = "http://" + swfurl
 
             qualities = streaminfo.get("qualities", [])
