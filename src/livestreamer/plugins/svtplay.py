@@ -1,23 +1,24 @@
-from livestreamer.compat import str
-from livestreamer.exceptions import PluginError, NoStreamsError
-from livestreamer.plugin import Plugin
-from livestreamer.stream import RTMPStream, HLSStream, HDSStream
-from livestreamer.utils import urlget, verifyjson, res_json
-
 import re
 
-class SVTPlay(Plugin):
-    SWFURL = "http://www.svtplay.se/public/swf/video/svtplayer-2012.15.swf"
-    PageURL = "http://www.svtplay.se"
+from livestreamer.exceptions import PluginError
+from livestreamer.plugin import Plugin
+from livestreamer.plugin.api import http
+from livestreamer.stream import RTMPStream, HLSStream, HDSStream
+from livestreamer.utils import verifyjson
 
+SWF_URL = "http://www.svtplay.se/public/swf/video/svtplayer-2012.15.swf"
+PAGE_URL = "http://www.svtplay.se"
+
+
+class SVTPlay(Plugin):
     @classmethod
     def can_handle_url(self, url):
-        return "svtplay.se" in url or "oppetarkiv.se" in url
+        return re.match("http(s)?://(www\.)?(svtplay|svtflow|oppetarkiv).se/", url)
 
     def _get_streams(self):
         self.logger.debug("Fetching stream info")
-        res = urlget(self.url, params=dict(output="json"))
-        json = res_json(res)
+        res = http.get(self.url, params=dict(output="json"))
+        json = http.json(res)
 
         if not isinstance(json, dict):
             raise PluginError("Invalid JSON response")
@@ -36,8 +37,8 @@ class SVTPlay(Plugin):
                 if url.startswith("rtmp"):
                     stream = RTMPStream(self.session, {
                         "rtmp": url,
-                        "pageUrl": self.PageURL,
-                        "swfVfy": self.SWFURL,
+                        "pageUrl": PAGE_URL,
+                        "swfVfy": SWF_URL,
                         "live": True
                     })
                     streams[str(video["bitrate"]) + "k"] = stream
