@@ -1,2 +1,2 @@
-livestreamer_cli
 livestreamer
+livestreamer_cli
