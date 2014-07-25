@@ -1,4 +1,4 @@
-livestreamer (1.9.0-1) UNRELEASED; urgency=low
+livestreamer (1.9.0-1) unstable; urgency=low
 
   * Disable version check (Closes: #750502)
   * New upstream version
