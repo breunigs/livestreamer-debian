@@ -1,21 +1,38 @@
+Index: packaging/CHANGELOG.rst
+===================================================================
+--- packaging.orig/CHANGELOG.rst	2014-07-22 20:49:04.892659196 +0200
++++ packaging/CHANGELOG.rst	2014-07-25 20:10:25.393868291 +0200
+@@ -97,7 +97,6 @@
+ --------------------------
+ 
+ CLI:
+- - Added option: ``--no-version-check``
+  - Added HTTP options: ``--http-cookies``,
+    ``--http-headers``,
+    ``--http-query-params``,
 Index: packaging/src/livestreamer_cli/argparser.py
 ===================================================================
---- packaging.orig/src/livestreamer_cli/argparser.py	2014-06-21 01:37:15.655647519 +0200
-+++ packaging/src/livestreamer_cli/argparser.py	2014-06-21 01:37:24.495970066 +0200
-@@ -75,8 +75,6 @@
- parser.add_argument("-j", "--json", action="store_true",
-                     help="Output JSON instead of the normal text output and "
-                          "disable log output, useful for external scripting")
--parser.add_argument("--no-version-check", action="store_true",
--                    help="Do not check for new Livestreamer releases")
- parser.add_argument("--yes-run-as-root", action="store_true",
-                     help=argparse.SUPPRESS)
- 
+--- packaging.orig/src/livestreamer_cli/argparser.py	2014-07-22 20:49:04.908659686 +0200
++++ packaging/src/livestreamer_cli/argparser.py	2014-07-25 20:10:42.310397034 +0200
+@@ -222,13 +222,6 @@
+     """
+ )
+ general.add_argument(
+-    "--no-version-check",
+-    action="store_true",
+-    help="""
+-    Do not check for new Livestreamer releases.
+-    """
+-)
+-general.add_argument(
+     "--yes-run-as-root",
+     action="store_true",
+     help=argparse.SUPPRESS
 Index: packaging/src/livestreamer_cli/main.py
 ===================================================================
---- packaging.orig/src/livestreamer_cli/main.py	2014-06-21 01:37:15.655647519 +0200
-+++ packaging/src/livestreamer_cli/main.py	2014-06-21 01:37:24.495970066 +0200
-@@ -745,24 +745,6 @@
+--- packaging.orig/src/livestreamer_cli/main.py	2014-07-22 20:49:04.908659686 +0200
++++ packaging/src/livestreamer_cli/main.py	2014-07-25 20:11:56.624715775 +0200
+@@ -778,29 +778,6 @@
              sys.exit(1)
  
  
@@ -29,20 +46,25 @@ Index: packaging/src/livestreamer_cli/main.py
 -        latest_version = data.get("info").get("version")
 -        cache.set("latest_version", latest_version, (60 * 60 * 24))
 -
+-    version_info_printed = cache.get("version_info_printed")
+-    if version_info_printed:
+-        return
+-
 -    installed_version = StrictVersion(livestreamer.version)
 -    latest_version = StrictVersion(latest_version)
 -
 -    if latest_version > installed_version:
 -        console.logger.info("A new version of Livestreamer ({0}) is "
 -                            "available!".format(latest_version))
+-        cache.set("version_info_printed", True, (60 * 60 * 6))
 -
 -
  def main():
      setup_args()
      check_root()
-@@ -771,10 +753,6 @@
+@@ -810,10 +787,6 @@
+     setup_console()
      setup_http_session()
-     setup_plugins()
  
 -    if not args.no_version_check:
 -        with ignored(Exception):
