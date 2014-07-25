@@ -1,9 +1,9 @@
-livestreamer (1.8.2-1) UNRELEASED; urgency=low
+livestreamer (1.9.0-1) UNRELEASED; urgency=low
 
   * Disable version check (Closes: #750502)
   * New upstream version
 
- -- Stefan Breunig <stefan-debian@yrden.de>  Sat, 21 Jun 2014 01:12:29 +0200
+ -- Stefan Breunig <stefan-debian@yrden.de>  Tue, 22 Jul 2014 20:50:15 +0200
 
 livestreamer (1.8.1-1) unstable; urgency=low
 
