@@ -128,6 +128,7 @@ src/livestreamer/plugins/svtplay.py
 src/livestreamer/plugins/tv4play.py
 src/livestreamer/plugins/twitch.py
 src/livestreamer/plugins/ustreamtv.py
+src/livestreamer/plugins/vaughnlive.py
 src/livestreamer/plugins/veetle.py
 src/livestreamer/plugins/vgtv.py
 src/livestreamer/plugins/viasat.py
