@@ -1,8 +1,8 @@
-livestreamer (1.10.1-1) UNRELEASED; urgency=low
+livestreamer (1.10.1-1) unstable; urgency=low
 
   * New upstream version
 
- -- Stefan Breunig <stefan-debian@yrden.de>  Sat, 30 Aug 2014 17:34:41 +0200
+ -- Stefan Breunig <stefan-debian@yrden.de>  Sat, 30 Aug 2014 17:46:46 +0200
 
 livestreamer (1.10.0-1) unstable; urgency=low
 
