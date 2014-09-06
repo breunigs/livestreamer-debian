@@ -89,10 +89,12 @@ src/livestreamer/plugins/aftonbladet.py
 src/livestreamer/plugins/alieztv.py
 src/livestreamer/plugins/ard_live.py
 src/livestreamer/plugins/ard_mediathek.py
+src/livestreamer/plugins/artetv.py
 src/livestreamer/plugins/azubutv.py
 src/livestreamer/plugins/bambuser.py
 src/livestreamer/plugins/beattv.py
 src/livestreamer/plugins/chaturbate.py
+src/livestreamer/plugins/common_jwplayer.py
 src/livestreamer/plugins/common_swf.py
 src/livestreamer/plugins/connectcast.py
 src/livestreamer/plugins/crunchyroll.py
@@ -121,6 +123,8 @@ src/livestreamer/plugins/nhkworld.py
 src/livestreamer/plugins/nrk.py
 src/livestreamer/plugins/oldlivestream.py
 src/livestreamer/plugins/picarto.py
+src/livestreamer/plugins/rtve.py
+src/livestreamer/plugins/seemeplay.py
 src/livestreamer/plugins/speedrunslive.py
 src/livestreamer/plugins/stream.py
 src/livestreamer/plugins/streamingvideoprovider.py
