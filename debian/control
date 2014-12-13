@@ -2,7 +2,7 @@ Source: livestreamer
 Maintainer: Stefan Breunig <stefan-debian@yrden.de>
 Section: python
 Priority: optional
-Standards-Version: 3.9.5
+Standards-Version: 3.9.6
 Build-Depends: debhelper (>= 9),
  dh-python,
  python,
