@@ -80,6 +80,7 @@ src/livestreamer/plugin/__init__.py
 src/livestreamer/plugin/plugin.py
 src/livestreamer/plugin/api/__init__.py
 src/livestreamer/plugin/api/http_session.py
+src/livestreamer/plugin/api/mapper.py
 src/livestreamer/plugin/api/support_plugin.py
 src/livestreamer/plugin/api/utils.py
 src/livestreamer/plugin/api/validate.py
@@ -113,13 +114,13 @@ src/livestreamer/plugins/gaminglive.py
 src/livestreamer/plugins/gomexp.py
 src/livestreamer/plugins/goodgame.py
 src/livestreamer/plugins/hitbox.py
-src/livestreamer/plugins/ilive.py
 src/livestreamer/plugins/letontv.py
 src/livestreamer/plugins/livestation.py
 src/livestreamer/plugins/livestream.py
 src/livestreamer/plugins/mips.py
 src/livestreamer/plugins/mlgtv.py
 src/livestreamer/plugins/nhkworld.py
+src/livestreamer/plugins/npo.py
 src/livestreamer/plugins/nrk.py
 src/livestreamer/plugins/oldlivestream.py
 src/livestreamer/plugins/picarto.py
@@ -128,6 +129,7 @@ src/livestreamer/plugins/seemeplay.py
 src/livestreamer/plugins/speedrunslive.py
 src/livestreamer/plugins/stream.py
 src/livestreamer/plugins/streamingvideoprovider.py
+src/livestreamer/plugins/streamlive.py
 src/livestreamer/plugins/svtplay.py
 src/livestreamer/plugins/tv4play.py
 src/livestreamer/plugins/twitch.py
@@ -135,6 +137,7 @@ src/livestreamer/plugins/ustreamtv.py
 src/livestreamer/plugins/vaughnlive.py
 src/livestreamer/plugins/veetle.py
 src/livestreamer/plugins/vgtv.py
+src/livestreamer/plugins/viagame.py
 src/livestreamer/plugins/viasat.py
 src/livestreamer/plugins/weeb.py
 src/livestreamer/plugins/youtube.py
