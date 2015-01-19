@@ -4,11 +4,25 @@ Source: https://github.com/chrippa/livestreamer
 Upstream-Name: livestreamer
 
 Files: *
-Copyright: 2011-2014 Christopher Rosell <chrippa@tanuki.se>
+Copyright: 2011-2015 Christopher Rosell <chrippa@tanuki.se>
 License: BSD-2-clause
 
 Files: src/livestreamer/packages/pbs.py
 Copyright: 2011-2012 Andrew Moffat
+License: Expat
+
+Files: docs/_themes/sphinx_rtd_theme_violet/*
+Copyright: 2013 Dave Snider
+           2014 Christopher Rosell <chrippa@tanuki.se>
+License: Expat
+
+Files: docs/_themes/sphinx_rtd_theme_violet/search.html
+Files: docs/_themes/sphinx_rtd_theme_violet/layout_old.html
+Copyright: 2007-2013 the Sphinx Team
+License: BSD-2-clause
+
+Files: docs/_themes/sphinx_rtd_theme_violet/static/js/scrollspy.js
+Copyright: 2011-2014 Twitter, Inc.
 License: Expat
 
 Files: docs/_themes/*
