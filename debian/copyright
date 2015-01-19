@@ -17,7 +17,7 @@ Copyright: 2013 Dave Snider
 License: Expat
 
 Files: docs/_themes/sphinx_rtd_theme_violet/search.html
-Files: docs/_themes/sphinx_rtd_theme_violet/layout_old.html
+       docs/_themes/sphinx_rtd_theme_violet/layout_old.html
 Copyright: 2007-2013 the Sphinx Team
 License: BSD-2-clause
 
