@@ -1,7 +1,7 @@
-Title: Use Debian packaged modernizr
-DEP: 3
-Date: 2015-01-19
-Drivers: Stefan Breunig <stefan-debian@yrden.de>
+Subject: Use Debian packaged modernizr
+Forwarded: not-needed
+Author: Stefan Breunig <stefan-debian@yrden.de>
+
 
 Index: packaging/docs/_themes/sphinx_rtd_theme_violet/layout.html
 ===================================================================

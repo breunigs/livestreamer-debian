@@ -1,7 +1,7 @@
-Title: Remove livestreamer version check
-DEP: 3
-Date: 2014-06-21
-Drivers: Stefan Breunig <stefan-debian@yrden.de>
+Subject: Remove livestreamer version check
+Forwarded: not-needed
+Author: Stefan Breunig <stefan-debian@yrden.de>
+Bug-Debian: https://bugs.debian.org/750502
 
 Index: packaging/CHANGELOG.rst
 ===================================================================
