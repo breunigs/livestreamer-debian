@@ -1,2 +1,3 @@
+use_debian_fonts
 use_debian_modernizr
 remove_new_version_check
