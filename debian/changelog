@@ -3,6 +3,7 @@ livestreamer (1.11.1-2) UNRELEASED; urgency=low
   * Updated copyright file
     - removed unused copyright rule
     - added entries for new files included upstream
+  * use Debian's modernizr for docs
 
  -- Stefan Breunig <stefan-debian@yrden.de>  Mon, 19 Jan 2015 22:08:32 +0100
 

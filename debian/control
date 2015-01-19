@@ -68,7 +68,8 @@ Package: python-livestreamer-doc
 Section: doc
 Architecture: all
 Depends: ${sphinxdoc:Depends},
-  ${misc:Depends}
+  ${misc:Depends},
+  libjs-modernizr
 Description: library to extract video streams from various services - documentation
  The API lists available video qualities from URLs which are
  visible to a service’s users. It can extract any such quality
