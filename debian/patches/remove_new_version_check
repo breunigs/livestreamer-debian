@@ -5,9 +5,17 @@ Bug-Debian: https://bugs.debian.org/750502
 
 Index: packaging/CHANGELOG.rst
 ===================================================================
---- packaging.orig/CHANGELOG.rst	2014-07-22 20:49:04.892659196 +0200
-+++ packaging/CHANGELOG.rst	2014-07-25 20:10:25.393868291 +0200
-@@ -97,7 +97,6 @@
+--- packaging.orig/CHANGELOG.rst	2015-03-01 21:23:48.103233651 +0100
++++ packaging/CHANGELOG.rst	2015-03-01 21:26:11.522840025 +0100
+@@ -7,7 +7,6 @@
+ 
+ CLI:
+  - Added :option:`--can-handle-url` option, useful for scripting.
+- - Added :option:`--version-check` option to force a version check.
+  - Added a passive HTTP server mode (:option:`--player-external-http`), patch by @danielkza. (#699)
+ 
+ Plugins:
+@@ -240,7 +239,6 @@
  --------------------------
  
  CLI:
@@ -17,9 +25,9 @@ Index: packaging/CHANGELOG.rst
     ``--http-query-params``,
 Index: packaging/src/livestreamer_cli/argparser.py
 ===================================================================
---- packaging.orig/src/livestreamer_cli/argparser.py	2014-07-22 20:49:04.908659686 +0200
-+++ packaging/src/livestreamer_cli/argparser.py	2014-07-25 20:10:42.310397034 +0200
-@@ -222,13 +222,6 @@
+--- packaging.orig/src/livestreamer_cli/argparser.py	2015-03-01 21:23:48.079233046 +0100
++++ packaging/src/livestreamer_cli/argparser.py	2015-03-01 21:26:41.199588361 +0100
+@@ -253,20 +253,6 @@
      """
  )
  general.add_argument(
@@ -30,29 +38,36 @@ Index: packaging/src/livestreamer_cli/argparser.py
 -    """
 -)
 -general.add_argument(
+-    "--version-check",
+-    action="store_true",
+-    help="""
+-    Runs a version check and exits.
+-    """
+-)
+-general.add_argument(
      "--yes-run-as-root",
      action="store_true",
      help=argparse.SUPPRESS
 Index: packaging/src/livestreamer_cli/main.py
 ===================================================================
---- packaging.orig/src/livestreamer_cli/main.py	2014-07-22 20:49:04.908659686 +0200
-+++ packaging/src/livestreamer_cli/main.py	2014-07-25 20:11:56.624715775 +0200
-@@ -778,29 +778,6 @@
+--- packaging.orig/src/livestreamer_cli/main.py	2015-03-01 21:23:48.079233046 +0100
++++ packaging/src/livestreamer_cli/main.py	2015-03-01 21:27:54.857448440 +0100
+@@ -828,35 +828,6 @@
              sys.exit(1)
  
  
--def check_version():
+-def check_version(force=False):
 -    cache = Cache(filename="cli.json")
 -    latest_version = cache.get("latest_version")
 -
--    if not latest_version:
+-    if force or not latest_version:
 -        res = requests.get("https://pypi.python.org/pypi/livestreamer/json")
 -        data = res.json()
 -        latest_version = data.get("info").get("version")
 -        cache.set("latest_version", latest_version, (60 * 60 * 24))
 -
 -    version_info_printed = cache.get("version_info_printed")
--    if version_info_printed:
+-    if not force and version_info_printed:
 -        return
 -
 -    installed_version = StrictVersion(livestreamer.version)
@@ -62,19 +77,25 @@ Index: packaging/src/livestreamer_cli/main.py
 -        console.logger.info("A new version of Livestreamer ({0}) is "
 -                            "available!".format(latest_version))
 -        cache.set("version_info_printed", True, (60 * 60 * 6))
+-    elif force:
+-        console.logger.info("Your Livestreamer version ({0}) is up to date!",
+-                            installed_version)
+-
+-    if force:
+-        sys.exit()
 -
 -
  def main():
      setup_args()
      check_root()
-@@ -810,10 +787,6 @@
+@@ -866,10 +837,6 @@
      setup_console()
      setup_http_session()
  
--    if not args.no_version_check:
+-    if args.version_check or not args.no_version_check:
 -        with ignored(Exception):
--            check_version()
+-            check_version(force=args.version_check)
 -
      if args.plugins:
          print_plugins()
-     elif args.url:
+     elif args.can_handle_url:
