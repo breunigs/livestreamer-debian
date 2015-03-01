@@ -91,6 +91,7 @@ Architecture: all
 Depends: ${misc:Depends},
   ${python:Depends},
   python-livestreamer
+Recommends: python-librtmp
 Suggests: python-livestreamer-doc
 Description: CLI that pipes video streams to video players
  Livestreamer is a Command Line Interface that extracts video
