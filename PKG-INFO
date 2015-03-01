@@ -1,8 +1,8 @@
 Metadata-Version: 1.1
 Name: livestreamer
-Version: 1.11.1
+Version: 1.12.0
 Summary: Livestreamer is command-line utility that extracts streams from various services and pipes them into a video player of choice.
-Home-page: http://livestreamer.tanuki.se/
+Home-page: http://livestreamer.io/
 Author: Christopher Rosell
 Author-email: chrippa@tanuki.se
 License: Simplified BSD
