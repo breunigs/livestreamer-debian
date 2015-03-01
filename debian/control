@@ -30,6 +30,7 @@ Depends: ${misc:Depends},
  python-concurrent.futures
 Recommends: rtmpdump,
   python-crypto
+  python-librtmp
 Suggests: livestreamer
 Description: library to extract video streams from various services - Python 2
  The API lists available video qualities from URLs which are
@@ -50,7 +51,8 @@ Depends: ${misc:Depends},
  python3-requests,
  python3 (>= 3.4) | python3-singledispatch
 Recommends: rtmpdump,
-  python3-crypto
+  python3-crypto,
+  python3-librtmp
 Suggests: livestreamer
 Description: library to extract video streams from various services - Python 3
  The API lists available video qualities from URLs which are
@@ -91,7 +93,6 @@ Architecture: all
 Depends: ${misc:Depends},
   ${python:Depends},
   python-livestreamer
-Recommends: python-librtmp
 Suggests: python-livestreamer-doc
 Description: CLI that pipes video streams to video players
  Livestreamer is a Command Line Interface that extracts video
