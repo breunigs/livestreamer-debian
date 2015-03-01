@@ -1,4 +1,3 @@
-AUTHORS
 CHANGELOG.rst
 CONTRIBUTING.rst
 LICENSE
@@ -85,6 +84,7 @@ src/livestreamer/plugin/api/support_plugin.py
 src/livestreamer/plugin/api/utils.py
 src/livestreamer/plugin/api/validate.py
 src/livestreamer/plugins/__init__.py
+src/livestreamer/plugins/afreeca.py
 src/livestreamer/plugins/afreecatv.py
 src/livestreamer/plugins/aftonbladet.py
 src/livestreamer/plugins/alieztv.py
@@ -101,6 +101,7 @@ src/livestreamer/plugins/connectcast.py
 src/livestreamer/plugins/crunchyroll.py
 src/livestreamer/plugins/cybergame.py
 src/livestreamer/plugins/dailymotion.py
+src/livestreamer/plugins/disney_de.py
 src/livestreamer/plugins/dmcloud.py
 src/livestreamer/plugins/dmcloud_embed.py
 src/livestreamer/plugins/dommune.py
@@ -120,6 +121,7 @@ src/livestreamer/plugins/livestream.py
 src/livestreamer/plugins/mips.py
 src/livestreamer/plugins/mlgtv.py
 src/livestreamer/plugins/nhkworld.py
+src/livestreamer/plugins/nos.py
 src/livestreamer/plugins/npo.py
 src/livestreamer/plugins/nrk.py
 src/livestreamer/plugins/oldlivestream.py
@@ -131,6 +133,7 @@ src/livestreamer/plugins/stream.py
 src/livestreamer/plugins/streamingvideoprovider.py
 src/livestreamer/plugins/streamlive.py
 src/livestreamer/plugins/svtplay.py
+src/livestreamer/plugins/tga.py
 src/livestreamer/plugins/tv4play.py
 src/livestreamer/plugins/twitch.py
 src/livestreamer/plugins/ustreamtv.py
@@ -139,6 +142,8 @@ src/livestreamer/plugins/veetle.py
 src/livestreamer/plugins/vgtv.py
 src/livestreamer/plugins/viagame.py
 src/livestreamer/plugins/viasat.py
+src/livestreamer/plugins/viasat_embed.py
+src/livestreamer/plugins/wattv.py
 src/livestreamer/plugins/weeb.py
 src/livestreamer/plugins/youtube.py
 src/livestreamer/plugins/zdf_mediathek.py
