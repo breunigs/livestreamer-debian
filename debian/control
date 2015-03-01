@@ -70,7 +70,7 @@ Architecture: all
 Depends: ${sphinxdoc:Depends},
   ${misc:Depends},
   libjs-modernizr,
-  fonts-inconsolata,
+Recommends: fonts-inconsolata,
   fonts-lato
 Description: library to extract video streams from various services - documentation
  The API lists available video qualities from URLs which are
