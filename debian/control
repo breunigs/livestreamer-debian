@@ -29,7 +29,7 @@ Depends: ${misc:Depends},
  python-singledispatch,
  python-concurrent.futures
 Recommends: rtmpdump,
-  python-crypto
+  python-crypto,
   python-librtmp
 Suggests: livestreamer
 Description: library to extract video streams from various services - Python 2
