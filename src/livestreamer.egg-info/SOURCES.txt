@@ -115,6 +115,7 @@ src/livestreamer/plugins/gaminglive.py
 src/livestreamer/plugins/gomexp.py
 src/livestreamer/plugins/goodgame.py
 src/livestreamer/plugins/hitbox.py
+src/livestreamer/plugins/itvplayer.py
 src/livestreamer/plugins/letontv.py
 src/livestreamer/plugins/livestation.py
 src/livestreamer/plugins/livestream.py
@@ -134,7 +135,10 @@ src/livestreamer/plugins/streamingvideoprovider.py
 src/livestreamer/plugins/streamlive.py
 src/livestreamer/plugins/svtplay.py
 src/livestreamer/plugins/tga.py
+src/livestreamer/plugins/tv3cat.py
 src/livestreamer/plugins/tv4play.py
+src/livestreamer/plugins/tvcatchup.py
+src/livestreamer/plugins/tvplayer.py
 src/livestreamer/plugins/twitch.py
 src/livestreamer/plugins/ustreamtv.py
 src/livestreamer/plugins/vaughnlive.py
