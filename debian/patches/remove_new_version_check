@@ -28,7 +28,7 @@ Index: packaging/src/livestreamer_cli/argparser.py
      action="store_true",
      help="""
 -    Do not check for new Livestreamer releases.
-+    Unused, kept for compability reasons.
++    Unused, kept for compatibility reasons.
      """
  )
  general.add_argument(

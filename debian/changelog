@@ -2,7 +2,7 @@ livestreamer (1.12.2-1) UNRELEASED; urgency=low
 
   * New upstream version
     - works around SSL issues on new.livestream.com (Closes: #780931)
-  * Do not remove version check command line parameters for compability with
+  * Do not remove version check command line parameters for compatibility with
     apps that use livestreamer
 
  -- Stefan Breunig <stefan-debian@yrden.de>  Sat, 02 May 2015 22:01:41 +0200
