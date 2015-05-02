@@ -119,6 +119,7 @@ src/livestreamer/plugins/itvplayer.py
 src/livestreamer/plugins/letontv.py
 src/livestreamer/plugins/livestation.py
 src/livestreamer/plugins/livestream.py
+src/livestreamer/plugins/media_ccc_de.py
 src/livestreamer/plugins/mips.py
 src/livestreamer/plugins/mlgtv.py
 src/livestreamer/plugins/nhkworld.py
@@ -126,10 +127,13 @@ src/livestreamer/plugins/nos.py
 src/livestreamer/plugins/npo.py
 src/livestreamer/plugins/nrk.py
 src/livestreamer/plugins/oldlivestream.py
+src/livestreamer/plugins/periscope.py
 src/livestreamer/plugins/picarto.py
 src/livestreamer/plugins/rtve.py
+src/livestreamer/plugins/sbsdiscovery.py
 src/livestreamer/plugins/seemeplay.py
 src/livestreamer/plugins/speedrunslive.py
+src/livestreamer/plugins/ssh101.py
 src/livestreamer/plugins/stream.py
 src/livestreamer/plugins/streamingvideoprovider.py
 src/livestreamer/plugins/streamlive.py
