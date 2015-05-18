@@ -5,6 +5,7 @@ Priority: optional
 Standards-Version: 3.9.6
 Build-Depends: debhelper (>= 9),
  dh-python,
+ dpkg-dev,
  python,
  python3,
  python-setuptools,

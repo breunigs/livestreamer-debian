@@ -4,12 +4,15 @@
 # also avoids overwrites by the Python 3 build, regardless of order.
 export PYBUILD_INSTALL_ARGS_python2 = --install-scripts usr/share/livestreamer/
 
+LAST_CHANGE = $(shell dpkg-parsechangelog -S Date)
+BUILD_DATE = $(shell LC_ALL=C date -u "+%B %d, %Y" -d "$(LAST_CHANGE)")
+
 %:
 	dh $@ --with python2,python3,sphinxdoc --buildsystem=pybuild
 
 override_dh_auto_install:
-	python setup.py build_sphinx -b man
-	python setup.py build_sphinx -b html
+	python setup.py build_sphinx -b man --today "$(BUILD_DATE)"
+	python setup.py build_sphinx -b html --today "$(BUILD_DATE)"
 	dh_auto_install
 
 override_dh_compress:
